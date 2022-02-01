@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Contex from '../contex/Contex';
 
 function Table() {
-  const { data } = useContext(Contex);
+  const { data, filterByName } = useContext(Contex);
   console.log(data);
   return (
     <div>
@@ -16,7 +16,7 @@ function Table() {
         </thead>
         <tbody>
           {data.length !== 0 ? (data)
-            .filter((date) => date !== 'residents')
+            .filter((date) => date.name.includes(filterByName.name))
             .map((dat, index) => (
               <tr key={ index }>
                 <td>{dat.name}</td>

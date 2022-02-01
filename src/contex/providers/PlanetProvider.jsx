@@ -5,6 +5,7 @@ import Contex from '../Contex';
 function PlanetProvider(prop) {
   const { children } = prop;
   const [data, setData] = useState([]);
+  const [filterByName, setFilterByName] = useState({ name: '' });
 
   useEffect(() => {
     async function loadingPromises() {
@@ -15,7 +16,7 @@ function PlanetProvider(prop) {
   }, []);
 
   return (
-    <Contex.Provider value={ { data } }>
+    <Contex.Provider value={ { data, filterByName, setFilterByName } }>
       {children}
     </Contex.Provider>
   );
