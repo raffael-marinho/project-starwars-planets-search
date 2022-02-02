@@ -6,6 +6,10 @@ function PlanetProvider(prop) {
   const { children } = prop;
   const [data, setData] = useState([]);
   const [filterByName, setFilterByName] = useState({ name: '' });
+  const [filterByNumericValues, setFilterByNumericValues] = useState({
+    filterByNumericValues: [
+    ],
+  });
 
   useEffect(() => {
     async function loadingPromises() {
@@ -16,7 +20,15 @@ function PlanetProvider(prop) {
   }, []);
 
   return (
-    <Contex.Provider value={ { data, filterByName, setFilterByName } }>
+    <Contex.Provider
+      value={ {
+        data,
+        filterByName,
+        setFilterByName,
+        filterByNumericValues,
+        setFilterByNumericValues,
+      } }
+    >
       {children}
     </Contex.Provider>
   );
